@@ -1,14 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+	<?php
+		$title = "SHOP";
+		$h1 = "Главная";
+		$year = date('Y');
+	?>
+
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="author" content="Luka Cvrk (www.solucija.com)" />
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
-	<title>minimalistica</title>
+	<title><?php echo $title?></title>
 </head>
 <body>
 <?php
-    $a = 5;
+    /*$a = 5;
     $b = '05';
 	var_dump($a == $b);         // Почему true?     
 	//так как PHP я так понял сравнивает содержимое не важно какой тип данных когда ==
@@ -21,9 +28,10 @@
 
 	var_dump((int)0 === (int)'hello, world'); // Почему true?
 	////потому что === сравнивает типы данных!
+	*/
 ?>
 	<div id="content">
-		<h1></h1>
+		<h1><?php echo $h1?></h1>
 		
 		<ul id="menu">
 			<li><a href="#">home</a></li>
@@ -60,7 +68,7 @@
 		</div>
 		
 		<div id="footer">
-		      <?= date('Y')?>
+		      <?= $year?>
 			<p>Copyright &copy; <em>minimalistica</em> &middot; Design: Luka Cvrk, <a href="http://www.solucija.com/" title="Free CSS Templates">Solucija</a></p>
 		</div>	
 	</div>
