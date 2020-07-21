@@ -14,6 +14,7 @@
 	<title><?php echo $title?></title>
 </head>
 <body>
+
 <?php
     /*$a = 5;
     $b = '05';
