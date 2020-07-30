@@ -14,30 +14,33 @@
 	<title><?php echo $title?></title>
 </head>
 <body>
-<?php
-    /*$a = 5;
-    $b = '05';
-	var_dump($a == $b);         // Почему true?     
-	//так как PHP я так понял сравнивает содержимое не важно какой тип данных когда ==
 
-	var_dump((int)'012345');     // Почему 12345?    
-	//превращает в число и убирает лишний 0
 
-	var_dump((float)123.0 === (int)123.0); // Почему false? 
-	//потому что === сравнивает типы данных!
-
-	var_dump((int)0 === (int)'hello, world'); // Почему true?
-	////потому что === сравнивает типы данных!
-	*/
-?>
 	<div id="content">
 		<h1><?php echo $h1?></h1>
 		
-		<ul id="menu">
-			<li><a href="#">home</a></li>
-			<li><a href="#">archive</a></li>
-			<li><a href="#">contact</a></li>
-		</ul>
+		<?php
+$menuName = [
+    "Главная" => ["О нас", "Производство", "Качество"],
+    "Архив" => ["Основное", "Документы"],
+    "Контакты" => ["Адрес", "Телефон", "Написать нам"]
+];
+$listMenu = '<ul id="menu">';
+foreach ($menuName as $menuKey => $menuList){
+    $listMenu .= '<li><a href="#">'.$menuKey.'</a>';
+    if(is_array($menuName[$menuKey])){
+        $listMenu .= '<ul id="menuMenu">';
+        for($i=0;$i<count($menuName[$menuKey]);$i++){
+            $listMenu .= '<li><a href="#">'.$menuList[$i].'</a></li>';
+        }
+        $listMenu .= '</ul>';
+    }
+    $listMenu .= '</li>';
+}
+
+$listMenu .= "</ul>";
+echo $listMenu;
+?>
 	
 		<div class="post">
 			<div class="details">
