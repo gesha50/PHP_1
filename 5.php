@@ -6,8 +6,8 @@
     }
     function change2($str){
         // с этой функцией не много не разобрался 
-        $str = preg_replace(' ', '_', $str);
+        $str = str_replace(' ', '_', $str);
         echo $str;
     }
-    change("Какая прекрасная сегодня погода!")
+    change2("Какая прекрасная сегодня погода!")
 ?>
