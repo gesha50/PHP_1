@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            width: 800px;
+            margin: 0, auto;
+        }
+
+        #image_1,
+        #image_2,
+        #image_3,
+        #image_4 {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <div id="big_picture"></div>
+	<div id="gallery">
+		<img id="image_1" src="img/small/1.jpg">
+		<img id="image_2" src="img/small/2.jpg">
+        <img id="image_3" src="img/small/3.jpg">
+        <img id="image_4" src="img/small/4.jpg">
+    </div>
+</div>
+    
+    <script>
+        function init(){
+            var images = document.getElementsByTagName("img");// находим все теги img и кладем в переменную она ввиде массива
+            for (var i = 0; i < images.length; i++) {
+                images[i].onclick = changeBigPicture; //чтоб для каждой картинки не ставить onclick
+            }
+        }
+        function changeBigPicture(eventObj){
+	        
+            var appDiv = document.getElementById("big_picture"); // находим id big_picture и присваиваем в переменную
+	        appDiv.innerHTML = "";	// очищаем appDiv
+	        var eventElement = eventObj.target; // отслеживаем событие
+	        var imageNameParts = eventElement.id.split("_"); //преобразуем строку в массив
+	        var src = "img/big/" + imageNameParts[1] + ".jpg"; // прописываем путь для нового эл-та
+	        var imageDomElement = document.createElement("img"); // создаем img в html
+	        imageDomElement.src = src;  //вставляем путь к эл-ту в html
+	        appDiv.appendChild(imageDomElement); //вставляем всё в html в конкретное место*/
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
