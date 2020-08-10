@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css/css.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+
 <?php
-    include 'server.php';
+    include 'modules/responsesToPage.php';
+    $x = rand(1,10);
+    $y = rand(1,10);
+    $result = $x + $y; 
 ?>
-    <div style="margin: 200px auto;
-    text-align: center;">
-    
-    <form action="#?name1=" method="POST">
-        <input  style="width: 25px" type="text"name="number1" value="">
 
-        <select name="sign">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
-
-        <input style="width: 25px" type="text"name="number2">
-
-        <input type="submit" value="=">
-        <span><?= $res?></span>
-
-    
-    
-    </form>
-    
+    <div class="content">
+        
+        <div class="gridResponses">
+        <?php while($data = mysqli_fetch_assoc($res)): ?>
+            <div class="responses">
+                <h4 class='fio'><?= $data['fio']?></h4>
+                <p class='text'><?= $data['text']?></p>
+                <p class="date"><?= $data['date']?></p>
+            </div>
+            <?php endwhile; ?> 
+        </div>  
+        <hr>
+        <div class="responsesForm">
+            <?php
+            if (isset($_GET['error'])):
+            ?>
+            <h3>Ошибка! Попробуйте ещё раз!</h3>
+            <?php endif;?>
+            <h4>Оставьте Ваш отзыв о нашем сайте</h4>
+            <form action="modules/fResponses.php" method="post">
+            <input type="hidden" name="correct" value="<?= $result?>">
+                <p>Введите Ваше ФИО:</p>
+                <input type="text" name="fio"> <br> 
+                <p>Введите Ваш отзыв:</p>
+                <textarea name="text" cols="30" rows="10"></textarea> <br>
+                <p>Вычислите: <?= $x?> + <?= $y?> = <input style="width: 30px;" type="text" name="answer"></p> <br> 
+                <input type="submit" name="Отправить" >        
+        </form>
+      </div>
     </div>
+    
 </body>
 </html>
