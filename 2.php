@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +7,30 @@
 </head>
 <body>
 <?php
-    $foto = scandir("small");
+    include 'server.php'
     
-    for($i=2;$i<count($foto);$i++):
-        ?>
-            
-        <span><a target="blank" href="server.php?name=<?= $foto[$i]?>"><img src="small/<?= $foto[$i]?>" alt=""></a></span>
-        
+?>
+<div style="margin: 200px auto;
+    text-align: center;">
+    
+    <form action="#" method="POST">
+        <input style="width: 25px" type="text"name="num1">
 
-    <?php endfor?>
+        <input style="width: 25px" type="text"name="num2">
+
+        <span><?= $result?></span> <br> <br>
+
+        <input type="submit" name="+" value="+">
+        <input type="submit" name="-" value="-">
+        <input type="submit" name="*" value="*">
+        <input type="submit" name="/" value="/">
+
+
+
     
+    
+    </form>
+    
+    </div>
 </body>
 </html>
