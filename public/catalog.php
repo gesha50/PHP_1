@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="css/style.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 </head>
 <body>
     <?php
@@ -18,7 +17,6 @@
 
         <div class="main">
             <?php while($data = mysqli_fetch_assoc($res)): ?>
-                <? print_r($data);?>
                 <div class="goodsItem">
                     <a  href="item.php?id=<?= $data['id']?>"><img src="<?= $data['urlS']?>" alt=""></a>
                     <div class="itemText">
@@ -30,9 +28,9 @@
                 </div>
             <?php endwhile;?>
         </div>
-        <div class="footer">
-
-        </div>
+        <footer>
+            <?php include '../template/footer.php'; ?>
+        </footer>
 
 
     </div>

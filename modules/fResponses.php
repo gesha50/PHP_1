@@ -1,5 +1,5 @@
 <?php
-    include 'sqlConnect.php';
+    include 'db.php';
 if ($_POST['answer'] == $_POST['correct']){
     $fio = (!(!$_POST['fio']) ? strip_tags($_POST['fio']) : "");
     $response = $_POST['text'];
@@ -7,9 +7,9 @@ if ($_POST['answer'] == $_POST['correct']){
     $sql = "insert into responses(fio,text) values('$fio','$response')";
     $res = mysqli_query($connect, $sql);
 
-    header('location: ../index.php');
+    header('location: ../public/responses.php');
 } else {
-    header('location: ../index.php?error=true');
+    header('location: ../public/responses.php?error=true');
 }
 ?>
     
