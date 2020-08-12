@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/css.css">
+<link rel="stylesheet" href="css/style.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-
 <?php
-    include 'modules/responsesToPage.php';
+    include '../modules/responsesToPage.php';
     $x = rand(1,10);
     $y = rand(1,10);
     $result = $x + $y; 
 ?>
 
-    <div class="content">
+    <div class="conteiner">
         
+        <?php include '../template/header.php';?>
         <div class="gridResponses">
         <?php while($data = mysqli_fetch_assoc($res)): ?>
             <div class="responses">
@@ -44,6 +45,8 @@
                 <input type="submit" name="Отправить" >        
         </form>
       </div>
+    
+
     </div>
     
 </body>

@@ -1,0 +1,57 @@
+.header {
+    margin: 0 -30px;
+    background-color: #81b300;
+    padding: 0 30px;
+}
+
+.b-header__link {
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    line-height: 70px;
+}
+
+.b-header__link:hover .b-header__span {
+    color: #000000;
+}
+
+.b-header__span {
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.goodsItem {
+    position: relative;
+}
+
+.itemText {
+    max-width: 300px;
+    display: inline-block;
+}
+
+.buttonBuy {
+    position: absolute;
+    left: calc(50% - 20px);
+    bottom: 0;
+    width: 50px;
+}
+
+
+.gridResponses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.responses {
+    width: 300px;
+}
+
+.date{
+    text-align: end;
+}
