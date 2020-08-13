@@ -11,6 +11,10 @@
     line-height: 70px;
 }
 
+.cart {
+    float: right;
+}
+
 .b-header__link:hover .b-header__span {
     color: #000000;
 }
@@ -33,6 +37,10 @@
 .itemText {
     max-width: 300px;
     display: inline-block;
+}
+
+.button {
+    cursor: pointer;
 }
 
 .buttonBuy {
@@ -87,4 +95,40 @@ footer p{
     clear: both;
     background-color: #333333;
     padding: 10px 5px;
+}
+
+.counterDiv {
+    display: inline-block;
+}
+
+.counterCart{
+    text-decoration: none;
+    font-size: 30px;
+    display: inline;
+    margin: 20px;
+}
+
+.price{
+    margin: 50px;
+}
+.totalPrice{
+    margin-top: 30px;
+    display: block;
+    text-align: center;
+}
+
+.delete {
+    text-decoration: none;
+}
+
+.mainAdmin{
+    width: 1300px;
+    margin: 0 auto;
+}
+
+.goodsItemAdmin{
+    width: 21%;
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
 }

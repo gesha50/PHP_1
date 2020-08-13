@@ -23,14 +23,13 @@
                 <h2><?= $data['title']?></h2>
                 <p><?= $data['descriptionB']?></p>
                 <p>Цена: <?= $data['price']?></p>
+                <a href="../modules/addToCart.php?id=<?= $data['id']?>"><button class="button">Купить</button></a>
             </div>
-            <button class="buttonBuy">Купить</button>
-
-
         </div>
 <?php endwhile; ?>
-
-
+        <footer>
+        <?php include '../template/footer.php';?>
+        </footer>
     </div>
 
 

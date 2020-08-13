@@ -5,6 +5,7 @@
                 <a href="catalog.php" class="b-header__link"><span class="b-header__span">Каталог</span></a>
                 <a href="responses.php" class="b-header__link"><span class="b-header__span">Отзывы</span></a>
                 <a href="#" class="b-header__link"><span class="b-header__span">Фотогалерея</span></a>
+                <a href="cart.php" class="b-header__link cart"><span class="b-header__span">Корзина</span></a>
             </div>
 
 

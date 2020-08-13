@@ -24,7 +24,7 @@
                         <p><?= $data['descriptionS']?></p> <br>
                         <p><?= $data['price']?></p> <br>
                     </div>
-                    <button class="buttonBuy">Купить</button>
+                    <a href="../modules/addToCart.php?id=<?= $data['id']?>"><button class="buttonBuy">Купить</button></a>
                 </div>
             <?php endwhile;?>
         </div>
