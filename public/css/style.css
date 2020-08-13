@@ -1,0 +1,134 @@
+.header {
+    background-color: #81b300;
+    padding: 0 30px;
+    margin-bottom: 25px;
+}
+
+.b-header__link {
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    line-height: 70px;
+}
+
+.cart {
+    float: right;
+}
+
+.b-header__link:hover .b-header__span {
+    color: #000000;
+}
+
+.b-header__span {
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.goodsItem {
+    position: relative;
+}
+
+.itemText {
+    max-width: 300px;
+    display: inline-block;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.buttonBuy {
+    position: absolute;
+    left: calc(50% - 20px);
+    bottom: 0;
+    width: 50px;
+}
+
+
+.gridResponses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.responses {
+    width: 300px;
+}
+
+.date{
+    text-align: end;
+}
+footer{
+    margin-top: 25px;
+    background-color: #373737;
+    color: #fff;
+    border-top: 1px solid #000;
+    height: 200px;
+}
+
+footer h4{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.footer-menu{
+    margin: 0;
+    padding: 0;
+}
+.footer-menu div{
+    float: left;
+    margin: 0 40px 20px 20px;
+    max-width: 300px;
+}
+footer-menu div:last-child{
+    float: right;
+}
+footer, footer a{
+    color: #fff;
+}
+footer p{
+    clear: both;
+    background-color: #333333;
+    padding: 10px 5px;
+}
+
+.counterDiv {
+    display: inline-block;
+}
+
+.counterCart{
+    text-decoration: none;
+    font-size: 30px;
+    display: inline;
+    margin: 20px;
+}
+
+.price{
+    margin: 50px;
+}
+.totalPrice{
+    margin-top: 30px;
+    display: block;
+    text-align: center;
+}
+
+.delete {
+    text-decoration: none;
+}
+
+.mainAdmin{
+    width: 1300px;
+    margin: 0 auto;
+}
+
+.goodsItemAdmin{
+    width: 21%;
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
