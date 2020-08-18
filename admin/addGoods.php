@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '';?>
 <!doctype html>
 <html lang="en">

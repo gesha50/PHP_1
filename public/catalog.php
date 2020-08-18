@@ -13,7 +13,7 @@
 
     <div class="conteiner">
 
-    <?php include '../template/header.php';?>
+    <?php include '../template/header.php'; ?>
 
         <div class="main">
             <?php while($data = mysqli_fetch_assoc($res)): ?>
