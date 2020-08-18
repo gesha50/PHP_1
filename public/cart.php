@@ -35,9 +35,8 @@ include '../models/goodsToCart.php';
 
             </div>
         <?php $ok += $data['price']*$data['counter']?>
-        <span class="totalPrice">Итого: <?= $ok?></span>
         <?php endwhile;?>
-
+        <span class="totalPrice">Итого: <?= $ok?></span>
 
     </div>
     <footer>

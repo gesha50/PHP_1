@@ -5,11 +5,26 @@ $id_good = (int)$_GET['id'];
 $counter = 1;
 $id_user = session_id();
 //echo $id_user;
-if($id_good) {
+
+$sql1 = "SELECT cart.id_good from cart,goods where cart.id_good = goods.id and cart.user='$id_user'";
+$res1 = mysqli_query($connect, $sql1);
+$n = mysqli_num_rows($res1);
+for($i = 0; $i < $n; $i++){
+    $res2[] = mysqli_fetch_assoc($res1);
+}
+$a = true;
+foreach ($res2 as $item) {
+    print_r($item['id_good']);
+    if($id_good == $item['id_good']){
+        $a = false;
+        header('location: ../public/catalog.php');
+    }
+}
+if($a) {
     $sql = "INSERT INTO cart (id_good, counter, user) VALUES ($id_good, $counter, '$id_user')";
     $res = mysqli_query($connect, $sql);
 }
-//echo $sql;
 header('location: ../public/catalog.php');
+
 
 ?>
