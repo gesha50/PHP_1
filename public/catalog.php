@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 </head>
 <body>
-    <?php
-        include '../modules/goodsToPage.php';
+    <?php     session_start();
+    include '../models/goodsToPage.php';
 ?>
 
     <div class="conteiner">
@@ -24,7 +24,7 @@
                         <p><?= $data['descriptionS']?></p> <br>
                         <p><?= $data['price']?></p> <br>
                     </div>
-                    <a href="../modules/addToCart.php?id=<?= $data['id']?>"><button class="buttonBuy">Купить</button></a>
+                    <a href="../models/addToCart.php?id=<?= $data['id']?>"><button class="buttonBuy">Купить</button></a>
                 </div>
             <?php endwhile;?>
         </div>

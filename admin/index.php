@@ -1,5 +1,6 @@
 <?php
-include '../modules/goodsToPage.php';?>
+session_start();
+include '../models/goodsToPage.php';?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@ include '../modules/goodsToPage.php';?>
 </head>
 <body>
     <div class="conteiner">
+        <?php if(isset($_SESSION['login']) && isset($_SESSION['pass']) && $_SESSION['login'] == 'admin'): ?>
         <header>
             <?php include '../template/headerAdmin.php';?>
         </header>
@@ -30,6 +32,9 @@ include '../modules/goodsToPage.php';?>
         <footer>
             <?php include '../template/footer.php'; ?>
         </footer>
+        <?php else:?>
+            <h2>Вы не вошли в систему!</h2>
+        <?php endif;?>
     </div>
 </body>
 </html>

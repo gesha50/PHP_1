@@ -1,4 +1,4 @@
-<?php include '../modules/itemToPage.php';
+<?php include '../models/itemToPage.php';
 if($_GET['id']){
     $id= (int)($_GET['id']);
     $good = mysqli_fetch_assoc($res);
@@ -20,7 +20,7 @@ if($_GET['id']){
             <?php include '../template/headerAdmin.php';?>
         </header>
         <div class="content">
-            <form method="post" action="../modules/coreGoods.php" enctype="multipart/form-data">
+            <form method="post" action="../models/coreGoods.php" enctype="multipart/form-data">
                 <p><strong>Добавить товар:</strong></p>
                 <p>наименование: <br><input type="text" name="name" maxlength="100" value="<?=$good['title']?>"></p>
                 <p>Краткое описание: <br><textarea name="descriptionS" rows="5"><?=$good['descriptionS']?></textarea></p>

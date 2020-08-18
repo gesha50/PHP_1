@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-        include '../modules/itemToPage.php';
+<?php    session_start();
+include '../models/itemToPage.php';
 ?>
     <div class="conteiner">
     <?php include '../template/header.php';?>
@@ -23,7 +23,7 @@
                 <h2><?= $data['title']?></h2>
                 <p><?= $data['descriptionB']?></p>
                 <p>Цена: <?= $data['price']?></p>
-                <a href="../modules/addToCart.php?id=<?= $data['id']?>"><button class="button">Купить</button></a>
+                <a href="../models/addToCart.php?id=<?= $data['id']?>"><button class="button">Купить</button></a>
             </div>
         </div>
 <?php endwhile; ?>

@@ -12,12 +12,13 @@ include '';?>
 </head>
 <body>
 <div class="conteiner">
+    <?php if(isset($_SESSION['login']) && isset($_SESSION['pass']) && $_SESSION['login'] == 'admin'): ?>
     <header>
         <?php include '../template/headerAdmin.php';?>
     </header>
     <div class="mainAdmin">
         <div class="content">
-            <form method="post" action="../modules/coreGoods.php" enctype="multipart/form-data">
+            <form method="post" action="../models/coreGoods.php" enctype="multipart/form-data">
                 <p><strong>Добавить товар:</strong></p>
                 <p>Введите наименование: <br><input type="text" name="name" maxlength="100" required></p>
                 <p>Введите описание: <br><textarea name="descriptionS" rows="5" required></textarea></p>
@@ -32,6 +33,9 @@ include '';?>
     <footer>
         <?php include '../template/footer.php';?>
     </footer>
+    <?php else:?>
+        <h2>Вы не вошли в систему!</h2>
+    <?php endif;?>
 </div>
 </body>
 </html>

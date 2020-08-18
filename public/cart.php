@@ -1,6 +1,5 @@
-<?php
-include '../modules/goodsToCart.php';
-
+<?php     session_start();
+include '../models/goodsToCart.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,15 +26,16 @@ include '../modules/goodsToCart.php';
                     <p><?= $data['price']?></p> <br>
                 </div>
                 <div class="counterDiv">
-                    <a class="counterCart" href="../modules/decrement.php?id=<?= $data['cart_id']?>&counter=<?= $data['counter']?>">-</a>
+                    <a class="counterCart" href="../models/decrement.php?id=<?= $data['cart_id']?>&counter=<?= $data['counter']?>">-</a>
                     <p class="counterCart"><?= $data['counter']?></p>
-                    <a class="counterCart" href="../modules/increment.php?id=<?= $data['cart_id']?>">+</a>
+                    <a class="counterCart" href="../models/increment.php?id=<?= $data['cart_id']?>">+</a>
                 </div>
                 <span class="price">цена: <?= $data['price']*$data['counter']?></span>
-                <a href="../modules/decrement.php?id=<?= $data['cart_id']?>&counter=1" class="delete">Удалить</a>
+                <a href="../models/decrement.php?id=<?= $data['cart_id']?>&counter=1" class="delete">Удалить</a>
 
             </div>
-        <span class="totalPrice">Итого: </span>
+        <?php $ok += $data['price']*$data['counter']?>
+        <span class="totalPrice">Итого: <?= $ok?></span>
         <?php endwhile;?>
 
 

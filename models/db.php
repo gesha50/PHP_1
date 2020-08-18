@@ -8,4 +8,6 @@ $connect = mysqli_connect(SERVER,LOGIN,PASS,DB) or die("Error: ".mysqli_error($c
 if(!mysqli_set_charset($connect, "utf8")){
     printf("Error: ".mysqli_error($connect));
 }
+
+
 ?>

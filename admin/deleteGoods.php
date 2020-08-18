@@ -1,6 +1,6 @@
 
 <?php
-include_once "../modules/db.php";
+include_once "../models/db.php";
 if($_GET['id']){
     $id = (int)$_GET['id'];
     if($id == 0){

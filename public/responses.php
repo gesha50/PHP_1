@@ -1,4 +1,6 @@
-<?php     include '../modules/responsesToPage.php';
+<?php
+session_start();
+include '../models/responsesToPage.php';
 $x = rand(1,10);
 $y = rand(1,10);
 $result = $x + $y;
@@ -36,7 +38,7 @@ $result = $x + $y;
                 <h3>Ошибка! Попробуйте ещё раз!</h3>
             <?php endif;?>
             <h4>Оставьте Ваш отзыв о нашем сайте</h4>
-            <form action="../modules/fResponses.php" method="post">
+            <form action="../models/fResponses.php" method="post">
                 <input type="hidden" name="correct" value="<?= $result?>">
                 <p>Введите Ваше ФИО:</p>
                 <input type="text" name="fio"> <br>

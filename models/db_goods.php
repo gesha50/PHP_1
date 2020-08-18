@@ -2,8 +2,8 @@
 require_once "db.php";
 function goods_new($link, $name, $descriptionS, $descriptionB, $src, $small_src, $price){
 
-//    $test = "test = %s,%s";
-//    $demo =sprintf($test,"name","test2");
+//    $test = "test = %s,%d";
+//    $demo =sprintf($test,"name",2);
     //$query = "INSERT INTO goods (title, descriptionS, descriptionB, urlB, urlS, price) VALUES ('$name','$descriptionS','$descriptionB','$src','$small_src','$price')";
     $t = "INSERT INTO goods (title, descriptionS, descriptionB, urlB, urlS, price) VALUES ('%s','%s','%s','%s','%s','%s')";
 

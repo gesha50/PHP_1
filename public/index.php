@@ -8,7 +8,8 @@
 </head>
 <body>
 <?php
-    include '../modules/responsesToPage.php';
+    session_start();
+    include '../models/responsesToPage.php';
 ?>
 
     <div class="conteiner">
