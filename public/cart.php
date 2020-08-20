@@ -20,7 +20,7 @@ include '../models/goodsToCart.php';
     <div class="mainCart">
         <?php while($data = mysqli_fetch_assoc($res)): ?>
             <div class="goodsItem">
-                <a  href="item.php?id=<?= $data['id_good']?>"><img src="<?= $data['urlS']?>" alt=""></a>
+                <a  href="item.php?id=<?= $data['id_good']?>"><img class="imgMini" src="<?= $data['urlB']?>" alt=""></a>
                 <div class="itemText">
                     <h3><?= $data['title']?></h3> <br>
                     <p><?= $data['price']?></p> <br>
@@ -36,7 +36,7 @@ include '../models/goodsToCart.php';
             </div>
         <?php $ok += $data['price']*$data['counter']?>
         <?php endwhile;?>
-        <?php if($res->num_rows !== 0):?>
+        <?php if($row_cnt !== 0):?>
             <span class="totalPrice">Итого: <?= $ok?></span>
             <button class="button allBuy">Оформить заказ</button>
 

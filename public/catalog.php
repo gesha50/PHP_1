@@ -18,7 +18,7 @@
         <div class="main">
             <?php while($data = mysqli_fetch_assoc($res)): ?>
                 <div class="goodsItem">
-                    <a  href="item.php?id=<?= $data['id']?>"><img src="<?= $data['urlS']?>" alt=""></a>
+                    <a  href="item.php?id=<?= $data['id']?>"><img class="imgMini" src="<?= $data['urlB']?>" alt=""></a>
                     <div class="itemText">
                         <h3><?= $data['title']?></h3> <br>
                         <p><?= $data['descriptionS']?></p> <br>

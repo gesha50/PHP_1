@@ -15,7 +15,7 @@ include '../models/itemToPage.php';
 <?php while($data = mysqli_fetch_assoc($res)): ?>
         <div class="main">
             <div class="img">
-                <a href="#">
+                <a href="<?= $data['urlB']?>" target="_blank">
                     <img width="500px" src="<?= $data['urlB']?>" alt="">
                 </a>
             </div>

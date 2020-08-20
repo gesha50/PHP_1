@@ -23,7 +23,7 @@ include '../models/goodsToPage.php';?>
             <?php while($data = mysqli_fetch_assoc($res)): ?>
                 <div class="goodsItemAdmin">
                     <h3><?= $data['title']?></h3> <br>
-                    <img src="../public/<?= $data['urlS']?>" alt="">
+                    <img class="imgMini" src="../public/<?= $data['urlB']?>" alt="">
                     <a href="editGoods.php?id=<?=$data['id']?>"><button class="button buttonEdit">Редактировать</button></a>
                     <a href="deleteGoods.php?id=<?=$data['id']?>"><button class="button buttonDelete">Удалить</button></a>
                 </div>

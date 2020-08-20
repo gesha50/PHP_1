@@ -27,7 +27,7 @@ if($_GET['id']){
                 <p>Подробное описание: <br><textarea name="descriptionB" rows="10"><?=$good['descriptionB']?></textarea></p>
                 <p>цена: <br><input type="number" name="price" maxlength="20" value="<?=$good['price']?>" ></p>
                 <p><strong>Загрузите картинку в формате JPEG, PNG или GIF</strong></p>
-                <p><img src="../public/<?=$good['urlS']?>" width="200"></p>
+                <p><img src="../public/<?=$good['urlB']?>" width="200"></p>
                 <p><input type="file" name="img" accept="image/jpeg,image/png,image/gif"></p>
                 <input type="hidden" name="src" value="<?=$good['urlB']?>">
                 <input type="hidden" name="edit" value="<?=$good['id']?>">
