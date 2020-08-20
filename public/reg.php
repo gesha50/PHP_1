@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 </head>
 <body>
-<div id="container">
+<div class="conteiner">
     <header>
     <?php include "../template/header.php"; ?>
     </header>
-    <div class="content">
+    <div class="mainCart">
         <h1>Регистрация на сайте</h1>
         <hr>
         <?php if(isset($_SESSION['login']) && isset($_SESSION['pass'])):?>

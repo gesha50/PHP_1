@@ -12,19 +12,15 @@ $n = mysqli_num_rows($res1);
 for($i = 0; $i < $n; $i++){
     $res2[] = mysqli_fetch_assoc($res1);
 }
-$a = true;
+$isItemInCart = false;
 foreach ($res2 as $item) {
-    print_r($item['id_good']);
     if($id_good == $item['id_good']){
-        $a = false;
-        header('location: ../public/catalog.php');
+        $isItemInCart = true;
     }
 }
-if($a) {
+if(!$isItemInCart) {
     $sql = "INSERT INTO cart (id_good, counter, user) VALUES ($id_good, $counter, '$id_user')";
     $res = mysqli_query($connect, $sql);
 }
 header('location: ../public/catalog.php');
-
-
 ?>

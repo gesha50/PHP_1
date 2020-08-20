@@ -36,7 +36,11 @@ include '../models/goodsToCart.php';
             </div>
         <?php $ok += $data['price']*$data['counter']?>
         <?php endwhile;?>
-        <span class="totalPrice">Итого: <?= $ok?></span>
+        <?php if($res->num_rows !== 0):?>
+            <span class="totalPrice">Итого: <?= $ok?></span>
+            <button class="button allBuy">Оформить заказ</button>
+
+        <?php endif; ?>
 
     </div>
     <footer>

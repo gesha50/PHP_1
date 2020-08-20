@@ -1,3 +1,13 @@
+html,
+body {
+    height: 100%;
+}
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .header {
     background-color: #81b300;
     padding: 0 30px;
@@ -25,13 +35,19 @@
     color: #ffffff;
 }
 
+.mainCart {
+    flex: 1 0 auto;
+}
+
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    flex: 1 0 auto;
 }
 
 .goodsItem {
     position: relative;
+    height: 300px;
 }
 
 .itemText {
@@ -41,6 +57,10 @@
 
 .button {
     cursor: pointer;
+}
+.allBuy {
+    float: right;
+    margin: 0px 20px 0;
 }
 
 .buttonBuy {
@@ -64,11 +84,12 @@
     text-align: end;
 }
 footer{
-    margin-top: 25px;
+    margin-top: 40px;
     background-color: #373737;
     color: #fff;
     border-top: 1px solid #000;
     height: 200px;
+    flex: 0 0 auto;
 }
 
 footer h4{
