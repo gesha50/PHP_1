@@ -24,7 +24,7 @@
                         <p><?= $data['descriptionS']?></p> <br>
                         <p><?= $data['price']?></p> <br>
                     </div>
-                    <a href="../models/addToCart.php?id=<?= $data['id']?>"><button class="buttonBuy">Купить</button></a>
+                    <a onclick="buy(<?= $data['id']?>)"><button class="buttonBuy">Купить</button></a>
                 </div>
             <?php endwhile;?>
         </div>
@@ -34,6 +34,7 @@
 
 
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/ajax.js"></script>
 </body>
 </html>

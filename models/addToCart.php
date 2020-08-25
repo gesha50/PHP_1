@@ -4,7 +4,7 @@ include 'db.php';
 $id_good = (int)$_GET['id'];
 $counter = 1;
 $id_user = session_id();
-//echo $id_user;
+echo $id_user;
 
 $sql1 = "SELECT cart.id_good from cart,goods where cart.id_good = goods.id and cart.user='$id_user'";
 $res1 = mysqli_query($connect, $sql1);
@@ -22,5 +22,6 @@ if(!$isItemInCart) {
     $sql = "INSERT INTO cart (id_good, counter, user) VALUES ($id_good, $counter, '$id_user')";
     $res = mysqli_query($connect, $sql);
 }
-header('location: ../public/catalog.php');
+echo "Товар добавлен в корзину!";
+//header('location: ../public/catalog.php');
 ?>

@@ -133,6 +133,10 @@ footer p{
     margin: 20px;
 }
 
+.counterDiv a{
+    cursor: pointer;
+}
+
 .price{
     margin: 50px;
 }

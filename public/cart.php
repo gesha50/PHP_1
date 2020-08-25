@@ -23,22 +23,22 @@ include '../models/goodsToCart.php';
                 <a  href="item.php?id=<?= $data['id_good']?>"><img class="imgMini" src="<?= $data['urlB']?>" alt=""></a>
                 <div class="itemText">
                     <h3><?= $data['title']?></h3> <br>
-                    <p><?= $data['price']?></p> <br>
+                    <p>Цена: <?= $data['price']?></p> <br>
                 </div>
                 <div class="counterDiv">
-                    <a class="counterCart" href="../models/decrement.php?id=<?= $data['cart_id']?>&counter=<?= $data['counter']?>">-</a>
-                    <p class="counterCart"><?= $data['counter']?></p>
-                    <a class="counterCart" href="../models/increment.php?id=<?= $data['cart_id']?>">+</a>
+                    <a class="counterCart" onclick="decrement(<?= $data['cart_id']?>,<?= $data['counter']?>)">-</a>
+                    <p id="counterValue" class="counterCart"><?= $data['counter']?></p>
+                    <a class="counterCart" onclick="increment(<?= $data['cart_id']?>)">+</a>
                 </div>
                 <span class="price">цена: <?= $data['price']*$data['counter']?></span>
-                <a href="../models/decrement.php?id=<?= $data['cart_id']?>&counter=1" class="delete">Удалить</a>
+                <a onclick="decrement(<?= $data['cart_id']?>,1)" class="delete">Удалить</a>
 
             </div>
         <?php $ok += $data['price']*$data['counter']?>
         <?php endwhile;?>
         <?php if($row_cnt !== 0):?>
             <span class="totalPrice">Итого: <?= $ok?></span>
-            <button class="button allBuy">Оформить заказ</button>
+            <a href="order.php"><button class="button allBuy">Оформить заказ</button></a>
 
         <?php endif; ?>
 
@@ -48,6 +48,7 @@ include '../models/goodsToCart.php';
     </footer>
 
 </div>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/ajax.js"></script>
 </body>
 </html>

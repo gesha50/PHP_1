@@ -23,7 +23,7 @@ include '../models/itemToPage.php';
                 <h2><?= $data['title']?></h2>
                 <p><?= $data['descriptionB']?></p>
                 <p>Цена: <?= $data['price']?></p>
-                <a href="../models/addToCart.php?id=<?= $data['id']?>"><button class="button">Купить</button></a>
+                <a onclick="buy(<?= $data['id']?>)"><button class="button">Купить</button></a>
             </div>
         </div>
 <?php endwhile; ?>
@@ -32,6 +32,7 @@ include '../models/itemToPage.php';
         </footer>
     </div>
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/ajax.js"></script>
 </body>
 </html>
