@@ -1,4 +1,5 @@
 <?php
+$counter = (int)$_GET['counter'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,6 +18,7 @@
         </header>
         <main>
             <div><h1>Спасибо за Ваш заказ</h1></div>
+            <p>Ваш заказ номер: <?= $counter?></p>
         </main>
         <footer>
             <?php include "../template/footer.php"; ?>
