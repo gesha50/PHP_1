@@ -1,3 +1,18 @@
+function renderCart() {
+    $.ajax(
+
+        {
+            type: "GET",
+            url: "../models/goodsToCart.php",
+            //data: str,
+            success: function (answer) {
+                console.log(answer);
+                document.querySelector('.mainCart').innerHTML = "";
+                document.querySelector('.mainCart').innerHTML = ` `;
+            }
+        }
+    )
+}
 
 function buy(id){
     let str = "id="+id;
@@ -7,16 +22,14 @@ function buy(id){
             url: "../models/addToCart.php",
             data: str,
             success: function (answer) {
-
             }
         }
     )
 }
-function decrement(id, counter){
-    console.log(counter);
-    let str = "id="+id+"&counter="+counter;
-    let count = document.getElementById('counterValue');
-    count = counter;
+function decrement(id){
+    let countValue = document.getElementById('counterValue_'+id).value;
+    console.log(countValue);
+    let str = "id="+id+"&counter="+countValue;
     $.ajax(
         {
             type: "GET",
@@ -24,10 +37,10 @@ function decrement(id, counter){
             data: str,
             success: function (res) {
                 if(res == 0){
-                    alert('ok');
-                    document.getElementsByClassName('goodsItem').innerHTML = "";
+                    renderCart();
+                    //document.querySelector('.goodsItem').innerHTML = ' ';
                 } else {
-                    document.getElementById("counterValue").innerText = res;
+                    document.getElementById("counterValue_"+id).value = res;
                 }
             }
         }
@@ -41,7 +54,7 @@ function increment(id){
             url: "../models/increment.php",
             data: str,
             success: function (answer) {
-                document.getElementById("counterValue").innerText = answer;
+                document.getElementById("counterValue_"+id).value = answer;
             }
         }
     )

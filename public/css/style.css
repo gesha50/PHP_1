@@ -131,6 +131,7 @@ footer p{
     font-size: 30px;
     display: inline;
     margin: 20px;
+    width: 50px;
 }
 
 .counterDiv a{

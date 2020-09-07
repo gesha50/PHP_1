@@ -26,9 +26,9 @@ include '../models/goodsToCart.php';
                     <p>Цена: <?= $data['price']?></p> <br>
                 </div>
                 <div class="counterDiv">
-                    <a class="counterCart" onclick="decrement(<?= $data['cart_id']?>,<?= $data['counter']?>)">-</a>
-                    <p id="counterValue" class="counterCart"><?= $data['counter']?></p>
-                    <a class="counterCart" onclick="increment(<?= $data['cart_id']?>)">+</a>
+                    <a class="counterCart decrement_<?= $data['cart_id']?>" onclick="decrement(<?= $data['cart_id']?>,<?= $data['counter']?>)">-</a>
+                    <input id="counterValue_<?= $data['cart_id']?>" class="counterCart" value="<?= $data['counter']?>">
+                    <a class="counterCart increment_<?= $data['cart_id']?>" onclick="increment(<?= $data['cart_id']?>)">+</a>
                 </div>
                 <span class="price">цена: <?= $data['price']*$data['counter']?></span>
                 <a onclick="decrement(<?= $data['cart_id']?>,1)" class="delete">Удалить</a>
