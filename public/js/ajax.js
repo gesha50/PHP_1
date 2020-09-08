@@ -3,12 +3,18 @@ function renderCart() {
 
         {
             type: "GET",
-            url: "../models/goodsToCart.php",
+            url: "../models/renderGoodsToCart.php",
             //data: str,
+            contentType: 'application/json',
+            dataType: "json",
+            error: function (req, text, error) { // отслеживание ошибок во время выполнения ajax-запроса
+                alert('Хьюстон, У нас проблемы! ' + text + ' | ' + error);
+            },
             success: function (answer) {
-                console.log(answer);
-                document.querySelector('.mainCart').innerHTML = "";
-                document.querySelector('.mainCart').innerHTML = ` `;
+                console.log(answer[1].price);
+                console.log(answer[0].price);
+                //document.querySelector('.mainCart').innerHTML = "";
+                document.querySelector('.mainCart').innerHTML = "ok"+ answer[0].title + "ok2" + answer[1].title;
             }
         }
     )
@@ -28,7 +34,6 @@ function buy(id){
 }
 function decrement(id){
     let countValue = document.getElementById('counterValue_'+id).value;
-    console.log(countValue);
     let str = "id="+id+"&counter="+countValue;
     $.ajax(
         {
@@ -38,7 +43,6 @@ function decrement(id){
             success: function (res) {
                 if(res == 0){
                     renderCart();
-                    //document.querySelector('.goodsItem').innerHTML = ' ';
                 } else {
                     document.getElementById("counterValue_"+id).value = res;
                 }
