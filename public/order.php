@@ -14,6 +14,14 @@
         <?php include "../template/header.php"; ?>
     </header>
     <main>
+<!--        <div class="main"></div>-->
+<!--        <script>-->
+<!--            window.onload = function(){-->
+<!--                 renderCart();-->
+<!---->
+<!--            }-->
+<!---->
+<!--        </script>-->
         <h2>Заполните данные:</h2>
         <div class="formClientInfo">
             <form class="formOrder" id="formOrder" action="../controllers/order.php" method="post">
@@ -47,5 +55,7 @@
     <footer>
         <?php include "../template/footer.php"; ?>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/ajax.js"></script>
 </body>
 </html>

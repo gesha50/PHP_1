@@ -18,6 +18,7 @@ include '../models/goodsToCart.php';
     <?php include '../template/header.php';?>
     </header>
     <div class="mainCart">
+        <?php if($row_cnt !== 0):?>
         <?php while($data = mysqli_fetch_assoc($res)): ?>
             <div class="goodsItem">
                 <a  href="item.php?id=<?= $data['id_good']?>"><img class="imgMini" src="<?= $data['urlB']?>" alt=""></a>
@@ -36,10 +37,12 @@ include '../models/goodsToCart.php';
             </div>
         <?php $ok += $data['price']*$data['counter']?>
         <?php endwhile;?>
-        <?php if($row_cnt !== 0):?>
+
             <span class="totalPrice">Итого: <?= $ok?></span>
             <a href="order.php"><button class="button allBuy">Оформить заказ</button></a>
 
+        <?php else: ?>
+            <h4>Корзина пуста =(</h4>
         <?php endif; ?>
 
     </div>

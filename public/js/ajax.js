@@ -11,10 +11,36 @@ function renderCart() {
                 alert('Хьюстон, У нас проблемы! ' + text + ' | ' + error);
             },
             success: function (answer) {
-                console.log(answer[1].price);
-                console.log(answer[0].price);
-                //document.querySelector('.mainCart').innerHTML = "";
-                document.querySelector('.mainCart').innerHTML = "ok"+ answer[0].title + "ok2" + answer[1].title;
+                let elem = document.querySelector('.mainCart')
+                let item;
+                if(answer.length){
+                    console.log(answer.length)
+                    let totalPrice = 0;
+                    for (let key in answer) {
+                        totalPrice += answer[key].price * answer[key].counter;
+                        let itemAllPrice = answer[key].price * answer[key].counter;
+                        item = '<div class="goodsItem">';
+                        item += '<a  href="item.php?id=' + answer[key].id_good +'"><img class="imgMini" src="' + answer[key].urlB + '" alt=""></a>\n'
+                        item += '<div class="itemText">';
+                        item += '<h3>' + answer[key].title + '</h3> <br>';
+                        item += '<p>Цена:' + answer[key].price + '</p> <br></div>';
+                        item += '<div class="counterDiv">';
+                        item += '<a class="counterCart decrement_' + answer[key].cart_id + '" onclick="decrement(' + answer[key].cart_id + ',' + answer[key].counter + ')">-</a>';
+                        item += '<input id="counterValue_' + answer[key].cart_id + '" class="counterCart" value="' + answer[key].counter + '">\n';
+                        item += '<a class="counterCart increment_' + answer[key].cart_id + '" onclick="increment(' + answer[key].cart_id + ')">+</a></div>';
+                        item += '<span class="price">цена: ' + itemAllPrice + '</span>\n';
+                        item += '<a onclick="decrement(' + answer[key].cart_id + ',1)" class="delete">Удалить</a></div>\n';
+                        if(key == 0){
+                            elem.innerHTML = '';
+                        }
+                        elem.innerHTML += item;
+                    }
+                    totalDiv = '<span class="totalPrice">Итого: ' + totalPrice + '</span>';
+                    totalDiv += '<a href="order.php"><button class="button allBuy">Оформить заказ</button></a>\n';
+                    elem.innerHTML += totalDiv;
+                } else {
+                    elem.innerHTML = "Корзина пуста =(";
+                }
             }
         }
     )
@@ -32,9 +58,11 @@ function buy(id){
         }
     )
 }
-function decrement(id){
-    let countValue = document.getElementById('counterValue_'+id).value;
-    let str = "id="+id+"&counter="+countValue;
+function decrement(id,counter){
+    if(!counter){
+        counter = document.getElementById('counterValue_'+id).value;
+    }
+    let str = "id="+id+"&counter="+counter;
     $.ajax(
         {
             type: "GET",
@@ -44,6 +72,7 @@ function decrement(id){
                 if(res == 0){
                     renderCart();
                 } else {
+                    renderCart();
                     document.getElementById("counterValue_"+id).value = res;
                 }
             }
@@ -59,6 +88,7 @@ function increment(id){
             data: str,
             success: function (answer) {
                 document.getElementById("counterValue_"+id).value = answer;
+                renderCart();
             }
         }
     )
