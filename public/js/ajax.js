@@ -94,6 +94,36 @@ function increment(id){
     )
 }
 
+function aboutOrder(id) {
+    console.log(id);
+    let str = "id="+id;
+    $.ajax(
+        {
+            type: "GET",
+            url: "../models/aboutOrderId.php",
+            data: str,
+            dataType: "json",
+            success: function (answer) {
+                console.log(answer);
+                let modal = document.getElementById('modalWindow');
+                modal.style = "display: block; ";
+                let totalPrice = 0;
+                for (let key in answer) {
+                    totalPrice += answer[key].price * answer[key].counter;
+                    let itemAllPrice = answer[key].price * answer[key].counter;
+                    item = '<h3>' + answer[key].title + '</h3> <br>';
+                    item += '<h3>' + answer[key].counter + '</h3> <br>';
+                    item += '<h3>' + answer[key].price + '</h3> <br>';
+                    if(key == 0){
+                        modal.innerHTML = '';
+                    }
+                    modal.innerHTML += item;
+                }
+            }
+        }
+    )
+}
+
 
 
 

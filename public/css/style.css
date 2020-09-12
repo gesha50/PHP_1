@@ -162,3 +162,15 @@ footer p{
     margin: 20px;
     text-align: center;
 }
+
+/* для админки */
+
+.tableOrder {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#modalWindow {
+    display: none;
+}

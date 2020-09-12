@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../models/goodsToOrders.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,7 +19,25 @@ session_start();
                 <?php include '../template/headerAdmin.php';?>
             </header>
             <div class="mainAdmin">
-                <?php ?>
+
+                <table border='1' class='tableOrder'>
+                <tr>
+                    <th>№ Заказа</th><th><p>О товаре</p></th><th>Способ доставки</th><th>Имя покупателя</th><th>Номер тел.</th>
+                    <th>Кол-во персон</th><th>Способ оплаты</th><th>К какому времени</th><th>Купюра оплаты</th>
+                    <th>Адрес</th><th>Комментарий</th><th>Время заказа</th><th>Статус</th>
+                </tr>
+                <?php while($data = mysqli_fetch_assoc($res)):  ?>
+
+                    <tr>
+                    <td><?=$data['id']; ?></td><td><a href='#' onclick="aboutOrder(<?= $data['id']; ?>)">подробнее</a></td><td><?= $data['delivery']; ?></td>
+                        <td><?= $data['name']; ?></td><td><?= $data['telefon']; ?></td>
+                    <td><?= $data['person']; ?></td><td><?= $data['money']; ?></td><td><?= $data['date_time']; ?></td><td><?= $data['change']; ?></td>
+                    <td><?= $data['adress']; ?></td><td><?= $data['comment']; ?></td><td><?= $data['time_order']; ?></td><td><?= $data['status']; ?></td>
+                </tr>
+
+                <?php endwhile; ?>
+                </table>
+                <div id="modalWindow">hhhh</div>
             </div>
             <footer>
                 <?php include '../template/footer.php'; ?>
@@ -27,5 +46,7 @@ session_start();
             <h2>Вы не вошли в систему!</h2>
         <?php endif;?>
     </div>
+    <script src="../public/js/jquery-3.5.1.js"></script>
+    <script src="../public/js/ajax.js"></script>
 </body>
 </html>
