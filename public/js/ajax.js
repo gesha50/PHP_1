@@ -105,20 +105,26 @@ function aboutOrder(id) {
             dataType: "json",
             success: function (answer) {
                 console.log(answer);
-                let modal = document.getElementById('modalWindow');
-                modal.style = "display: block; ";
+                let modal = document.querySelector('.popup__text');
                 let totalPrice = 0;
+                let itemAllPrice = 0;
+                let item = '<table><tr><th>Имя товара:</th><th>стоимость:</th><th>кол-во:</th><th>всего:</th></tr>';
                 for (let key in answer) {
-                    totalPrice += answer[key].price * answer[key].counter;
-                    let itemAllPrice = answer[key].price * answer[key].counter;
-                    item = '<h3>' + answer[key].title + '</h3> <br>';
-                    item += '<h3>' + answer[key].counter + '</h3> <br>';
-                    item += '<h3>' + answer[key].price + '</h3> <br>';
+                    totalPrice = answer[key].price * answer[key].counter;
+                    itemAllPrice += answer[key].price * answer[key].counter;
+                    item += '<tr><td>' + answer[key].title + '</td>';
+                    item += '<td>' + answer[key].price + '</td>';
+                    item += '<td>' + answer[key].counter + '</td>';
+                    item += '<td>' + totalPrice + '</td></tr>';
+
                     if(key == 0){
                         modal.innerHTML = '';
                     }
-                    modal.innerHTML += item;
                 }
+                item += '</table>';
+                item += '<p>Общая стоимость заказа: ' + itemAllPrice + '</p>';
+
+                modal.innerHTML += item;
             }
         }
     )

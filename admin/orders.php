@@ -29,7 +29,7 @@ include '../models/goodsToOrders.php';
                 <?php while($data = mysqli_fetch_assoc($res)):  ?>
 
                     <tr>
-                    <td><?=$data['id']; ?></td><td><a href='#' onclick="aboutOrder(<?= $data['id']; ?>)">подробнее</a></td><td><?= $data['delivery']; ?></td>
+                    <td><?=$data['id']; ?></td><td><a href='#popup' onclick="aboutOrder(<?= $data['id']; ?>)">подробнее</a></td><td><?= $data['delivery']; ?></td>
                         <td><?= $data['name']; ?></td><td><?= $data['telefon']; ?></td>
                     <td><?= $data['person']; ?></td><td><?= $data['money']; ?></td><td><?= $data['date_time']; ?></td><td><?= $data['change']; ?></td>
                     <td><?= $data['adress']; ?></td><td><?= $data['comment']; ?></td><td><?= $data['time_order']; ?></td><td><?= $data['status']; ?></td>
@@ -37,7 +37,15 @@ include '../models/goodsToOrders.php';
 
                 <?php endwhile; ?>
                 </table>
-                <div id="modalWindow">hhhh</div>
+                <div id="popup" class="popup">
+                    <a href="#" class="popup__area"></a>
+                    <div class="popup__body">
+                        <div class="popup__content">
+                            <a href="#" class="popup__close">X</a>
+                            <div class="popup__text">0</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <footer>
                 <?php include '../template/footer.php'; ?>

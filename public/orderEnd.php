@@ -1,4 +1,5 @@
 <?php
+session_start();
 $counter = (int)$_GET['counter'];
 ?>
 <!doctype html>
