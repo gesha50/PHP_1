@@ -39,7 +39,7 @@ if(isset($_POST['enter'])){
             $_SESSION['login'] = $login;
             $_SESSION['pass'] = $pass;
             header("Location: login.php");
-        }else{
+        } else{
             $message = "Не правильно ввели данные!";
         }
     }

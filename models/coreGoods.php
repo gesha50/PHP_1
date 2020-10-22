@@ -22,7 +22,7 @@ if($_POST['submit']){
     if($type == 'image/jpeg' || $type == 'image/png' || $type == 'image/gif'){
         if($size>0 and $size<100000000){
             if(move_uploaded_file($filePath,"../public/img/big/".$fileName)){
-                //image_resize("../public/img/big/".$fileName, "../public/img/small/".$fileName, 250);
+                image_resize("../public/img/big/".$fileName, "../public/img/small/".$fileName, 250);
                 if(isset($_POST['edit'])){
                     $id = (int)trim(strip_tags($_POST['edit']));
                     goods_edit($connect, $id, $name, $descriptionS,$descriptionB, DIR_BIG.$fileName, DIR_SMALL.$fileName, $price);
